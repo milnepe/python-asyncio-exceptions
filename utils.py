@@ -8,7 +8,7 @@ async def foo(i):
         print(f"Running foo with {i}")
         if i == 1:
             raise FooError(f"Task {i} failed!")
-        await asyncio.sleep(1)
+        await asyncio.sleep(5)
         return i**2
     except asyncio.CancelledError:
         print(f"Task {i} cancelled!")
