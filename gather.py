@@ -1,3 +1,12 @@
+"""
+Example using gather where both coros run conurrently but must finish
+before reurning to main.
+
+If one coro fails then all the other coros in the gather are cancelled.
+
+By adding return_exceptions=True the other coros can continue
+"""
+
 import asyncio
 import time
 
@@ -11,9 +20,9 @@ async def main():
     # result1 = None
     # result2 = None
     # try:
-    # adding return_exceptions=True passes the exception in result 
-    # and stops foo2 from being cancelled 
-    results = await asyncio.gather(foo(1),foo(2),return_exceptions=True)
+    # adding return_exceptions=True passes the exception in result
+    # and stops foo2 from being cancelled
+    results = await asyncio.gather(foo(1), foo(2), return_exceptions=True)
 
     # without the return_exceptions=True even if we wrap the gather in try, except
     # foo2 is still cancelled
