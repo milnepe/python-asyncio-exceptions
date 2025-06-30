@@ -23,7 +23,7 @@ async def main():
     except FooError as e:
         result2 = e
 
-    print(f"coros finished: {time.monotonic() - start_t}")
+    print(f"tasks finished: {time.monotonic() - start_t}")
 
 
 if __name__ == "__main__":
