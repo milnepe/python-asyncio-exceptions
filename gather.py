@@ -2,7 +2,7 @@ import asyncio
 import time
 
 from utils import foo
-from utils import FooError
+# from utils import FooError
 
 
 async def main():
