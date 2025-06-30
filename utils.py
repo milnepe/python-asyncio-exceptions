@@ -6,8 +6,8 @@ class FooError(Exception):
 async def foo(i):
     try:
         print(f"Running foo with {i}")
-        if i == 1:
-            raise FooError(f"Task {i} failed!")
+        # if i == 1:
+        #     raise FooError(f"Task {i} failed!")
         await asyncio.sleep(5)
         return i**2
     except asyncio.CancelledError:
