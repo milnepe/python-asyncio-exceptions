@@ -16,22 +16,22 @@ async def main():
 
     try:
         # will fail
-        result1 = await task_1  # wait for task_1 to finish
+        result = await task_1  # wait for task_1 to finish
     except FooError as exc:
-        result1 = exc
+        result = exc
     finally:
         # will print even on failure
+        print(f"foo 1 result: {result}")
         print(f"task 1 finish: {time.monotonic() - start_t}")
-        print(f"foo 1 result: {result1}")
 
     try:
         # doesn't get cancelled if task 1 fails
-        result2 = await task_2  # wait for task_2 to finish
+        result = await task_2  # wait for task_2 to finish
     except FooError as exc:
-        result2 = exc
+        result = exc
     finally:
         print(f"task 2 finish: {time.monotonic() - start_t}")
-        print(f"foo 2 result: {result2}")
+        print(f"foo 2 result: {result}")
 
     print(f"tasks finished: {time.monotonic() - start_t}")
 
